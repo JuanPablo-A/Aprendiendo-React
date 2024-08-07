@@ -13,9 +13,8 @@ function App() {
             - Lanzar errores con Throw new Error()
             - Iterar con while o for   
     */
-
+   
     const [data, setData] = useState(db)
-
     const [cart, setCart] = useState([])
 
     function addToCart (item) {
@@ -27,11 +26,9 @@ function App() {
             setCart(updateCart)
         } else {
             item.quantity = 1 
-            setCart([...cart, item]  )
+            setCart([...cart, item])
         } 
     }
-
-    
 
   return (
 
@@ -42,9 +39,7 @@ function App() {
             - Utilizar un array Method que genere un nuevo array 
             - .map que genera un nuevo array a diferencia de for each
     */
-
     <>
-
     <Header
         cart={cart}
     />
