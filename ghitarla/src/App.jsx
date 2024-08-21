@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Guitar from "./components/Guitar"
 import Header from "./components/Header"
 import { db } from './data/db'  
@@ -12,17 +12,29 @@ function App() {
             - Lanzar errores con Throw new Error()
             - Iterar con while o for   
     */
+
+    const  initialCart = () => {
+        const localStorageCart = localStorage.getItem('cart')
+        return localStorageCart ? JSON.parse(localStorageCart) : []
+    }
    
-    const [data, setData] = useState(db)
-    const [cart, setCart] = useState([])
+    const [data] = useState(db)
+    const [cart, setCart] = useState(initialCart)
 
     const MAX_ITEMS = 5
     const MIN_ITEMS = 0
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
 
     function addToCart (item) {
         const itemExists = cart.findIndex( (guitar) => guitar.id === item.id )
         
         if(itemExists !== -1 ) {
+
+            if (cart[itemExists].quantity === MAX_ITEMS) return  
+
             const updateCart = [...cart]
             updateCart[itemExists].quantity++
             setCart(updateCart)
@@ -56,13 +68,16 @@ function App() {
                     return {
                         ...item,
                         quantity: item.quantity - 1
-                    
                 }
             }
 
             return item
         })
-        setCart(updateCart.filter(item => item.quantity > 0))
+        setCart(updateCart.filter(item => item.quantity > MIN_ITEMS))
+    }
+
+    function clearCart(){
+        setCart([])
     }
 
   return (
@@ -81,6 +96,7 @@ function App() {
         removeFromCart = { removeFromCart }
         increaseQuantity = { increaseQuantity }
         decreaseQuantity = { decreaseQuantity }
+        clearCart = { clearCart }
     />
 
     <main className= "container-xl mt-5">
@@ -89,9 +105,9 @@ function App() {
         <div className= "row mt-5">
             {data.map((guitar) => (
                 <Guitar
-                    key = {guitar.id}
-                    guitar = {guitar}
-                    addToCart = {addToCart}
+                    key = { guitar.id }
+                    guitar = { guitar }
+                    addToCart = { addToCart }
                 />
             ))}
             
