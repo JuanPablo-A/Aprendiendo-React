@@ -1,30 +1,21 @@
-import { useMemo } from "react";
-
 export default function Header({
 	cart,
 	removeFromCart,
-	increaseQuantity,
 	decreaseQuantity,
+	increaseQuantity,
 	clearCart,
+    isEmpty,
+    cartTotal
 }) {
-	// State Derivado
-	const isEmpty = useMemo(() => cart.length === 0, [cart]);
-	/*
-    Use memo: Solo renderiza cuando se le pasa el arreglo del carrito, esto es para que react no renderice siempre la aplicacion
-  	*/
-	const cartTotal = useMemo(
-		() => cart.reduce((total, item) => total + item.quantity * item.price, 0), [cart]
-	);
-
 	return (
-		<>
-			<header className="py-5 header container-xl">
+		<header className="py-5 header">
+			<div className="container-xl">
 				<div className="row justify-content-center justify-content-md-between">
 					<div className="col-8 col-md-3">
 						<a href="index.html">
 							<img
 								className="img-fluid"
-								src=" /img/logo.svg"
+								src="/img/logo.svg"
 								alt="imagen logo"
 							/>
 						</a>
@@ -36,8 +27,11 @@ export default function Header({
 								src="/img/carrito.png"
 								alt="imagen carrito"
 							/>
+
 							<div id="carrito" className="bg-white p-3">
-								{isEmpty ? ( <p className="text-center">El carrito esta vacio</p>) : (
+								{isEmpty ? (
+									<p className="text-center">El carrito esta vacio</p>
+								) : (
 									<>
 										<table className="w-100 table">
 											<thead>
@@ -55,7 +49,7 @@ export default function Header({
 														<td>
 															<img
 																className="img-fluid"
-																src={`img/${guitar.image}.jpg`}
+																src={`/img/${guitar.image}.jpg`}
 																alt="imagen guitarra"
 															/>
 														</td>
@@ -91,14 +85,15 @@ export default function Header({
 												))}
 											</tbody>
 										</table>
+
 										<p className="text-end">
 											Total pagar: <span className="fw-bold">${cartTotal}</span>
 										</p>
 									</>
 								)}
+
 								<button
 									className="btn btn-dark w-100 mt-3 p-2"
-									type="button"
 									onClick={clearCart}
 								>
 									Vaciar Carrito
@@ -107,7 +102,7 @@ export default function Header({
 						</div>
 					</nav>
 				</div>
-			</header>
-		</>
+			</div>
+		</header>
 	);
 }
