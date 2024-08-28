@@ -9,6 +9,7 @@ Este es un repositorio enfocado en aprender el framework de *React*, se va a pon
 
 Empezamos con el primer proyecto el cual es crear un pagina sencilla de venta de guitarras, **GuitarLA** en la cual solo vamos a colocar la logica del carrito de ventas. Este primer proyecto consta de 3 carpetas.
 
+## GuitarLA:
 - `GuitarLA:` En este primer proyecto se encuentra la primera logica de react y usamos los primeros hooks, como lo son ***useEffect***, ***useState***, ***useMemo***
 
 - `GuitarLA-useCart:` Aca utilizamos toda la logica de nuestro primer proyecto. Esa logica la migramos desde la app principal a nuestro propio hook ***useCart*** 
