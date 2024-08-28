@@ -11,7 +11,7 @@ export default function Header({
 	const isEmpty = useMemo(() => cart.length === 0, [cart]);
 	/*
     Use memo: Solo renderiza cuando se le pasa el arreglo del carrito, esto es para que react no renderice siempre la aplicacion
-  	*/
+  */
 	const cartTotal = useMemo(
 		() => cart.reduce((total, item) => total + item.quantity * item.price, 0), [cart]
 	);
