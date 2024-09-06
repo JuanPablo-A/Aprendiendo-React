@@ -38,3 +38,7 @@ npm run dev
 
 Este es el primer proyecto creado desde cero con *TypeScript* y *Tailwind*
 
+En este proyecto se hizo el primer hook propio el cual era un hook para manejar los pedido que se hacen, poder añadir pedidos removerlos y limpiar todo el state. 
+
+La funcion de la calculadora es que a partir de un pedido, añadirle una propina ya sea del 10%, 20% o 50% y darle el monto total a pagar a el usuario 
+
