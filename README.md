@@ -11,7 +11,7 @@ Empezamos con el primer proyecto el cual es crear un pagina sencilla de venta de
 
 #### Clonar el repositorio:
 ```bash
-git clone https://github.com/JuanPablo-A/calculadora_ingeweb.git
+git clone https://github.com/JuanPablo-A/Aprendiendo-React.git
 ```
 
 Para ejecutar cualquiera de los proyectos, colocate en cualquiera de los proyectos que quieras iniciar:
