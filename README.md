@@ -36,9 +36,9 @@ npm run dev
 
 ### 2. Calculadora de propinas
 
-Este es el primer proyecto creado desde cero con *TypeScript* y *Tailwind*
+Este es el primer proyecto desarrollado desde cero utilizando *TypeScript* y *Tailwind CSS*.
 
-En este proyecto se hizo el primer hook propio el cual era un hook para manejar los pedido que se hacen, poder añadir pedidos removerlos y limpiar todo el state. 
+En este proyecto, se implementó un hook personalizado llamado useOrder. Este hook se encarga de gestionar los pedidos, permitiendo añadir nuevos pedidos, eliminar los existentes y limpiar todo el estado de manera eficiente.
 
-La funcion de la calculadora es que a partir de un pedido, añadirle una propina ya sea del 10%, 20% o 50% y darle el monto total a pagar a el usuario 
+La función principal de la calculadora es permitir que, a partir de un pedido, se añada una propina del 10%, 20% o 50%. De esta forma, la calculadora proporciona el monto total a pagar para el usuario.
 
