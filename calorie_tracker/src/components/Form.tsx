@@ -20,11 +20,8 @@ export default function Form() {
      */
     const handleChange = ( event: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement> ) => {
 
-        /**
-         * Si estoy escribiendo en categoria o calorias retorna un TRUE 
-         */
+        //Si estoy escribiendo en categoria o calorias retorna un TRUE 
         const isNumberFill = ['category', 'calories'].includes(event.target.id)
-
 
         setActivity({
             ...activity,
