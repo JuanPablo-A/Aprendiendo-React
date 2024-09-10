@@ -1,4 +1,6 @@
 import { useState, ChangeEvent, FormEvent, Dispatch } from "react"
+import {v4 as uuidv4 } from 'uuid'
+
 import { Activity } from "../types"
 import { categories } from "../data/categories"
 import { ActivityActions } from "../reducers/activity-reducer"
@@ -7,14 +9,16 @@ type FormProps = {
     dispatch: Dispatch<ActivityActions>
 }
 
+const INITIAL_STATE: Activity ={
+    id: uuidv4(),  // Generate a random id
+    category: 1,
+    name: '',
+    calories: 0
+}
+
 export default function Form( { dispatch }: FormProps ) {
 
-    const [ activity, setActivity ] = useState<Activity>({
-        category: 1,
-        name: '',
-        calories: 0
-    }
-    )
+    const [ activity, setActivity ] = useState<Activity>(INITIAL_STATE)
 
     /**
      * Function for the mapping of the data, from the form to the Activity state
@@ -53,6 +57,11 @@ export default function Form( { dispatch }: FormProps ) {
         e.preventDefault()
 
         dispatch({type: 'save-activity', payload: {newActivity: activity}})
+
+        setActivity({
+            ...INITIAL_STATE,
+            id: uuidv4()  // Overwrite the id each time the form is submitted
+        })
     }
 
 
