@@ -2,16 +2,19 @@ import { Activity } from '../types/index';
 
 // Actions of the reducer, the payload is the data and the action that I am going to send to the reducer
 export type ActivityActions = 
-    { type: 'save-activity', payload: { newActivity: Activity} } 
+    { type: 'save-activity', payload: { newActivity: Activity} } |
+    { type: 'set-activeId', payload: { id: Activity['id']} }
 
 // type of state
 type ActivityState = {
     activities: Activity[]
+    activeId: Activity['id']
 }
 
 // State inicial
 export const initialState: ActivityState = {
-    activities: []
+    activities: [],
+    activeId: ''
 }
 
 // Reducer  
@@ -25,6 +28,13 @@ export const activityReducer = (
         return {
             ...state,
             activities: [...state.activities, action.payload.newActivity]
+        }
+    }
+
+    if (action.type === 'set-activeId') {
+        return {
+            ...state,
+            activeId: action.payload.id
         }
     }
 
