@@ -6,7 +6,7 @@ export type ActivityActions =
     { type: 'set-activeId', payload: { id: Activity['id']} }
 
 // type of state
-type ActivityState = {
+export type ActivityState = {
     activities: Activity[]
     activeId: Activity['id']
 }
@@ -25,9 +25,18 @@ export const activityReducer = (
 
     if (action.type === 'save-activity') {
         // Este codigo maneja la logica para actualizar el satate
+        let updatedActivities: Activity[] = []
+
+        if (state.activeId) {
+            updatedActivities = state.activities.map( stateActivity => stateActivity.id === state.activeId ? action.payload.newActivity : stateActivity)
+        } else {
+            updatedActivities = [...state.activities, action.payload.newActivity]
+        }
+
         return {
             ...state,
-            activities: [...state.activities, action.payload.newActivity]
+            activities: updatedActivities,
+            activeId: ''
         }
     }
 
