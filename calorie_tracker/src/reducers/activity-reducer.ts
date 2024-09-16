@@ -3,7 +3,8 @@ import { Activity } from '../types/index';
 // Actions of the reducer, the payload is the data and the action that I am going to send to the reducer
 export type ActivityActions = 
     { type: 'save-activity', payload: { newActivity: Activity} } |
-    { type: 'set-activeId', payload: { id: Activity['id']} }
+    { type: 'set-activeId', payload: { id: Activity['id']} } |
+    { type: 'delete-activity', payload: { id: Activity['id']} } 
 
 // type of state
 export type ActivityState = {
@@ -11,9 +12,14 @@ export type ActivityState = {
     activeId: Activity['id']
 }
 
+const localStorageActivities = () : Activity[] => {
+    const activities = localStorage.getItem('activities')
+    return activities ? JSON.parse(activities): []
+}
+
 // State inicial
 export const initialState: ActivityState = {
-    activities: [],
+    activities: localStorageActivities(),
     activeId: ''
 }
 
@@ -44,6 +50,13 @@ export const activityReducer = (
         return {
             ...state,
             activeId: action.payload.id
+        }
+    }
+
+    if (action.type === 'delete-activity'){
+        return {
+            ...state,
+            activities: state.activities.filter(activity => activity.id !== action.payload.id)    
         }
     }
 
