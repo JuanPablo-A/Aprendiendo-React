@@ -46,8 +46,6 @@ function App() {
         <div className="max-w-4xl mx-auto">
           <CalorieTracker
             activities = {state.activities}
-            
-          
           />
         </div>
         
