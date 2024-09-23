@@ -28,11 +28,20 @@ npm run dev
 ## Proyectos
 
 ### 1. GuitarLA:
-- `GuitarLA:` En este primer proyecto se encuentra la primera logica de react y usamos los primeros hooks, como lo son ***useEffect***, ***useState***, ***useMemo***
+- `GuitarLA:` En este primer proyecto se encuentra la primera logica de react y usamos los primeros hooks, como lo son ***useEffect***, ***useState***, ***useMemo.***
 
 - `GuitarLA-useCart:` Aca utilizamos toda la logica de nuestro primer proyecto. Esa logica la migramos desde la app principal a nuestro propio hook ***useCart*** 
 
 - `GuitarLA-TS:` En este ultimo proyecto lo que se hace es migrar todo el codigo de ***react*** que esta escrito con ***JavaScript*** lo vamos a migrar a ***TypeScript***.
+
+    - **useState:** Se utiliza cuando se necesite almacenar valores que cambian con el tiempo y se quiere que react vuelva a renderizar ese componente cuando ese valor cambie
+
+    - **UseEffect:** Toma un callback que dependiendo como se declare va a realizar diferentes funciones y manejar efectos secundarios, se ejecuta automaticamente cuando el componente esta listo. Se debe usar este hook cuando se necesita ejecutar algo fuera del flujo de renderizado de react, algunos ejemplos incluyen: Acceder a APIs, acceder al local storage o subscripcione de eventos (event listeners)
+
+    > [!NOTE]
+    > En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
+
+    - **useMemo:** Es un hook enfocado al performance, evita que un codigo se ejecute o que un valor cambie si sus dependencias no han cambiado, tambien sirve para memorizar cálculos costosos
 
 ### 2. Calculadora de propinas
 
@@ -42,3 +51,4 @@ En este proyecto, se implementó un hook personalizado llamado useOrder. Este ho
 
 La función principal de la calculadora es permitir que, a partir de un pedido, se añada una propina del 10%, 20% o 50%. De esta forma, la calculadora proporciona el monto total a pagar para el usuario.
 
+ - **useCallback:** Es un hook muy similar a useMemo, pero sirve para memorizar funciones. Esto es util porque evita que cada funcion sea llamada despues de cada render 
