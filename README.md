@@ -36,12 +36,13 @@ npm run dev
 
     - **useState:** Se utiliza cuando se necesite almacenar valores que cambian con el tiempo y se quiere que react vuelva a renderizar ese componente cuando ese valor cambie
 
-    - **UseEffect:** Toma un callback que dependiendo como se declare va a realizar diferentes funciones y manejar efectos secundarios, se ejecuta automaticamente cuando el componente esta listo. Se debe usar este hook cuando se necesita ejecutar algo fuera del flujo de renderizado de react, algunos ejemplos incluyen: Acceder a APIs, acceder al local storage o subscripcione de eventos (event listeners)
-
-    > [!NOTE]
-    > En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
+    - **useEffect:** Toma un callback que dependiendo como se declare va a realizar diferentes funciones y **manejar efectos secundarios**, se ejecuta automaticamente cuando el componente esta listo. Se debe usar este hook cuando se necesita ejecutar algo fuera del flujo de renderizado de react, algunos ejemplos incluyen: Acceder a APIs, acceder al local storage o subscripcione de eventos (event listeners)
 
     - **useMemo:** Es un hook enfocado al performance, evita que un codigo se ejecute o que un valor cambie si sus dependencias no han cambiado, tambien sirve para memorizar cálculos costosos
+
+> [!NOTE]
+> En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
+
 
 ### 2. Calculadora de propinas
 
