@@ -45,9 +45,6 @@ npm run dev
         
     - **useEffect:** Toma un callback que dependiendo como se declare va a realizar diferentes funciones y **manejar efectos secundarios**, se ejecuta automaticamente cuando el componente esta listo. Se debe usar este hook cuando se necesita ejecutar algo fuera del flujo de renderizado de react, algunos ejemplos incluyen: Acceder a APIs, acceder al local storage o subscripcione de eventos (event listeners).
 
-    > [!NOTE]
-    > En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
-
         Sintaxis:
         ```ts
         useEffect(() => {
@@ -74,6 +71,9 @@ npm run dev
         - `reducer:` Es una función que recibe el estado actual y una acción, y retorna un nuevo estado.
 
         - `dispatch:` Es la función que se utiliza para enviar acciones al reducer.
+
+    > [!NOTE]
+    > En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
 
 
 ### 2. Calculadora de propinas
