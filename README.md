@@ -53,6 +53,9 @@ npm run dev
 
         }, [dependencias]);
         ```
+        
+        > [!NOTE]
+        > En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
 
     - **useMemo:** Es un hook enfocado al performance, evita que un codigo se ejecute o que un valor cambie si sus dependencias no han cambiado, tambien sirve para memorizar cálculos costosos 
 
@@ -71,9 +74,6 @@ npm run dev
         - `reducer:` Es una función que recibe el estado actual y una acción, y retorna un nuevo estado.
 
         - `dispatch:` Es la función que se utiliza para enviar acciones al reducer.
-
-> [!NOTE]
-> En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
 
 
 ### 2. Calculadora de propinas
