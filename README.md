@@ -45,6 +45,9 @@ npm run dev
         
     - **useEffect:** Toma un callback que dependiendo como se declare va a realizar diferentes funciones y **manejar efectos secundarios**, se ejecuta automaticamente cuando el componente esta listo. Se debe usar este hook cuando se necesita ejecutar algo fuera del flujo de renderizado de react, algunos ejemplos incluyen: Acceder a APIs, acceder al local storage o subscripcione de eventos (event listeners).
 
+        > [!NOTE]
+        > En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
+
         Sintaxis:
         ```ts
         useEffect(() => {
@@ -53,9 +56,6 @@ npm run dev
 
         }, [dependencias]);
         ```
-        
-        > [!NOTE]
-        > En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
 
     - **useMemo:** Es un hook enfocado al performance, evita que un codigo se ejecute o que un valor cambie si sus dependencias no han cambiado, tambien sirve para memorizar cálculos costosos 
 
