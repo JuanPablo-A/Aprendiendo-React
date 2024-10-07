@@ -32,13 +32,44 @@ npm run dev
 
 - `GuitarLA-useCart:` Aca utilizamos toda la logica de nuestro primer proyecto. Esa logica la migramos desde la app principal a nuestro propio hook ***useCart*** 
 
-- `GuitarLA-TS:` En este ultimo proyecto lo que se hace es migrar todo el codigo de ***react*** que esta escrito con ***JavaScript*** lo vamos a migrar a ***TypeScript***.
+- `GuitarLA-TS:` En el proyecto lo que se hace es migrar todo el codigo de ***react*** que esta escrito con ***JavaScript*** lo vamos a migrar a ***TypeScript***.
 
-    - **useState:** Se utiliza cuando se necesite almacenar valores que cambian con el tiempo y se quiere que react vuelva a renderizar ese componente cuando ese valor cambie
+- `GuitarLA-TS-useReducer:` Durante este proyecto migramos el custom hook de useCart a un reducer, para manejar el estado de una forma mas estructurada.
 
-    - **useEffect:** Toma un callback que dependiendo como se declare va a realizar diferentes funciones y **manejar efectos secundarios**, se ejecuta automaticamente cuando el componente esta listo. Se debe usar este hook cuando se necesita ejecutar algo fuera del flujo de renderizado de react, algunos ejemplos incluyen: Acceder a APIs, acceder al local storage o subscripcione de eventos (event listeners)
+    - **useState:** Se utiliza cuando se necesite almacenar valores que cambian con el tiempo y se quiere que react vuelva a renderizar ese componente cuando ese valor cambie.
 
-    - **useMemo:** Es un hook enfocado al performance, evita que un codigo se ejecute o que un valor cambie si sus dependencias no han cambiado, tambien sirve para memorizar cálculos costosos
+        Sintaxis:
+        ```ts
+        const [count, setCount] = useState(0)
+        ```
+        
+    - **useEffect:** Toma un callback que dependiendo como se declare va a realizar diferentes funciones y **manejar efectos secundarios**, se ejecuta automaticamente cuando el componente esta listo. Se debe usar este hook cuando se necesita ejecutar algo fuera del flujo de renderizado de react, algunos ejemplos incluyen: Acceder a APIs, acceder al local storage o subscripcione de eventos (event listeners).
+
+        Sintaxis:
+        ```ts
+        useEffect(() => {
+            const configuracion;
+
+        }, [dependencias]);
+        ```
+
+    - **useMemo:** Es un hook enfocado al performance, evita que un codigo se ejecute o que un valor cambie si sus dependencias no han cambiado, tambien sirve para memorizar cálculos costosos 
+
+        Sintaxis:
+        ```ts
+        useMemo(() => logica para calcular un valor, [dependencias])
+        ```
+
+    - **useReduccer:** Este hook es una alternativa al uso de useState pero con mas control sobre como y cuando cambia el estado, es ideal para manejar estados que dependen de multiples acciones y cambios relacionados entre si. 
+
+        Sintaxis:
+        ```js
+        const [state, dispatch] = useReducer(reducer, initialState)
+        ```
+
+        - `reducer:` Es una función que recibe el estado actual y una acción, y retorna un nuevo estado.
+        
+        - `dispatch:` Es la función que se utiliza para enviar acciones al reducer.
 
 > [!NOTE]
 > En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
