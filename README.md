@@ -72,8 +72,8 @@ npm run dev
 
         - `dispatch:` Es la función que se utiliza para enviar acciones al reducer.
 
-    > [!NOTE]
-    > En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
+> [!NOTE]
+> En React los efectos secundarios, son cualquier cosa que interactue con el mundo externo o que no sea simplemente renderizar una UI 
 
 
 ### 2. Calculadora de propinas
