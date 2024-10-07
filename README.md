@@ -48,7 +48,8 @@ npm run dev
         Sintaxis:
         ```ts
         useEffect(() => {
-            const configuracion;
+
+            logica de el efecto que se quiere manejar 
 
         }, [dependencias]);
         ```
@@ -68,7 +69,7 @@ npm run dev
         ```
 
         - `reducer:` Es una función que recibe el estado actual y una acción, y retorna un nuevo estado.
-        
+
         - `dispatch:` Es la función que se utiliza para enviar acciones al reducer.
 
 > [!NOTE]
